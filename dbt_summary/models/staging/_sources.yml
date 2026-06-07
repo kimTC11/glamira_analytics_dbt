@@ -1,0 +1,82 @@
+version: 2
+
+sources:
+  - name: glamira_src
+    database: codealong-bq-491909
+    schema: MongoDB_001
+    description: Glamira source system data
+
+    tables:
+      - name: summary_clean
+        description: Main order and customer summary data
+        columns:
+          - name: order_id
+            description: Order identifier
+            tests:
+              - not_null
+
+          - name: email_address
+            description: Customer email address
+
+          - name: user_id_db
+            description: Customer database identifier
+
+          - name: product_id
+            description: Product identifier
+
+          - name: time_stamp
+            description: Order timestamp
+
+          - name: cart_products
+            description: Array of products in cart
+
+      - name: ip_locations
+        description: IP geolocation data
+        columns:
+          - name: ip
+            description: IP address
+
+          - name: country_code
+            description: Country code
+
+          - name: country_name
+            description: Country name
+
+          - name: region_name
+            description: Region name
+
+          - name: city_name
+            description: City name
+
+      - name: react_batch_real
+        description: Product crawl data
+        columns:
+          - name: product_id
+            description: Product identifier
+
+          - name: sku
+            description: Product SKU
+
+          - name: name
+            description: Product name
+
+          - name: product_type
+            description: Product type
+
+          - name: gender
+            description: Product gender classification
+
+          - name: pricecurrency
+            description: Currency code
+
+          - name: price
+            description: Product price
+
+  - name: reference
+    database: codealong-bq-491909
+    schema: reference
+    description: Reference data
+
+    tables:
+      - name: currency_mapping
+        description: Currency mapping reference table

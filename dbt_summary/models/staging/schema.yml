@@ -1,0 +1,120 @@
+version: 2
+
+models:
+  - name: stg_summary
+    description: Staging layer for order summary data - clean and standardized
+    columns:
+      - name: _id
+        description: Document ID
+      - name: order_id
+        description: Order identifier
+        tests:
+          - not_null
+      - name: product_id
+        description: Product identifier
+      - name: order_price
+        description: Order price
+      - name: currency
+        description: Currency code
+      - name: email_address
+        description: Customer email address
+      - name: user_id_db
+        description: User database identifier
+      - name: ip
+        description: Customer IP address
+      - name: is_paypal
+        description: PayPal payment flag
+      - name: recommendation
+        description: Recommendation flag
+      - name: referrer_url
+        description: HTTP referrer URL
+      - name: utm_source
+        description: UTM source parameter
+      - name: utm_medium
+        description: UTM medium parameter
+      - name: key_search
+        description: Search keyword
+      - name: device_id
+        description: Device identifier
+      - name: user_agent
+        description: User agent string
+      - name: resolution
+        description: Screen resolution
+      - name: viewing_product_id
+        description: Product being viewed
+      - name: cat_id
+        description: Category ID
+      - name: collect_id
+        description: Collection ID
+      - name: collection
+        description: Collection name
+      - name: order_timestamp
+        description: Order timestamp
+      - name: cart_products
+        description: Nested array of products in cart
+      - name: option
+        description: Nested array of order options
+
+  - name: stg_crawl_products
+    description: Staging layer for product data
+    columns:
+      - name: product_id
+        description: Product identifier
+        tests:
+          - not_null
+      - name: sku
+        description: Product SKU
+      - name: product_name
+        description: Product name
+      - name: product_type
+        description: Product type
+      - name: type_id
+        description: Type identifier
+      - name: collection
+        description: Collection name
+      - name: gender
+        description: Gender classification
+      - name: pricecurrency
+        description: Price currency code
+      - name: price
+        description: Product price
+      - name: discount_value
+        description: Discount value
+      - name: crawled_at
+        description: Crawl timestamp
+
+  - name: stg_summary_cart_products
+    description: Staging layer for cart products - flattened from nested array
+    columns:
+      - name: _id
+        description: Document ID
+      - name: order_id
+        description: Order identifier
+        tests:
+          - not_null
+      - name: product_id
+        description: Product identifier
+        tests:
+          - not_null
+      - name: amount
+        description: Quantity of product
+      - name: currency
+        description: Currency code
+      - name: unit_price
+        description: Unit price of product
+      - name: product_options
+        description: Product options (nested array)
+
+  - name: stg_ip_locations
+    description: Staging layer for IP geolocation data
+    columns:
+      - name: ip
+        description: IP address
+      - name: country_code
+        description: Country code
+      - name: country_name
+        description: Country name
+      - name: region_name
+        description: Region or state name
+      - name: city_name
+        description: City name
