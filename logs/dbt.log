@@ -1,0 +1,205 @@
+[0m22:25:53.707544 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105b35910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113fb9410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114941690>]}
+
+
+============================== 22:25:53.721108 | eca613e9-3a9c-4579-9297-de7dbf01a4a3 ==============================
+[0m22:25:53.721108 [info ] [MainThread]: Running with dbt=1.11.10
+[0m22:25:53.721382 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'invocation_command': 'dbt init summary', 'log_format': 'default', 'target_path': 'None', 'log_path': 'logs', 'indirect_selection': 'eager', 'quiet': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'None', 'fail_fast': 'False', 'cache_selected_only': 'False', 'debug': 'False', 'printer_width': '80', 'partial_parse': 'True', 'profiles_dir': '/Users/kimcuong/.dbt', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'write_json': 'True', 'warn_error': 'None', 'use_experimental_parser': 'False', 'static_parser': 'True', 'introspect': 'True'}
+[0m22:25:53.744434 [info ] [MainThread]: Creating dbt configuration folder at /Users/kimcuong/.dbt
+[0m22:25:53.745355 [debug] [MainThread]: Starter project path: /Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/dbt/include/starter_project
+[0m22:25:53.748210 [info ] [MainThread]: 
+Your new dbt project "summary" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m22:25:53.748393 [info ] [MainThread]: Setting up your profile.
+[0m22:44:50.037831 [error] [MainThread]: Encountered an error:
+
+[0m22:44:50.042606 [error] [MainThread]: Traceback (most recent call last):
+  File "/Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/dbt/cli/requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/dbt/cli/main.py", line 488, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "/Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/dbt/task/init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "/Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/dbt/task/init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "/Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/dbt/task/init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "/Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/dbt/task/init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/dbt/task/init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+                  ^^^^^^^^^^^^^
+  File "/Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/click/termui.py", line 218, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/click/termui.py", line 201, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m22:44:50.057682 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": false, "command_wall_clock_time": 1136.2811, "process_in_blocks": "0", "process_kernel_time": 0.615705, "process_mem_max_rss": "255705088", "process_out_blocks": "0", "process_user_time": 2.202372}
+[0m22:44:50.058586 [debug] [MainThread]: Command `dbt init` failed at 22:44:50.058489 after 1136.28 seconds
+[0m22:44:50.058958 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113d25e90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113f06850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113f07190>]}
+[0m22:44:50.059305 [debug] [MainThread]: Flushing usage events
+[0m22:44:51.443499 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:45:11.139633 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 22:45:11.152060 | 594f48de-c5ee-4705-814c-cac3de6e0207 ==============================
+[0m22:45:11.152060 [info ] [MainThread]: Running with dbt=1.11.10
+[0m22:45:11.152477 [debug] [MainThread]: running dbt with arguments {'write_json': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'no_print': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'quiet': 'False', 'empty': 'None', 'use_colors': 'True', 'log_format': 'default', 'use_experimental_parser': 'False', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'target_path': 'None', 'invocation_command': 'dbt init dbt-summary', 'introspect': 'True', 'static_parser': 'True', 'log_cache_events': 'False', 'cache_selected_only': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/Users/kimcuong/.dbt', 'printer_width': '80'}
+[0m22:45:25.217472 [debug] [MainThread]: Starter project path: /Users/kimcuong/source/DEC/dbt-gcp/.venv/lib/python3.11/site-packages/dbt/include/starter_project
+[0m22:45:25.227592 [info ] [MainThread]: 
+Your new dbt project "dbt_summary" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m22:45:25.228383 [info ] [MainThread]: Setting up your profile.
+[0m22:46:10.922709 [info ] [MainThread]: Profile dbt_summary written to /Users/kimcuong/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m22:46:10.926886 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 59.80422, "process_in_blocks": "0", "process_kernel_time": 0.193988, "process_mem_max_rss": "209928192", "process_out_blocks": "0", "process_user_time": 0.735908}
+[0m22:46:10.928460 [debug] [MainThread]: Command `dbt init` succeeded at 22:46:10.928250 after 59.81 seconds
+[0m22:46:10.929028 [debug] [MainThread]: Flushing usage events
+[0m22:46:30.095747 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 22:46:30.104608 | ac698975-9a3e-419c-8b62-ae1442abd0bb ==============================
+[0m22:46:30.104608 [info ] [MainThread]: Running with dbt=1.11.10
+[0m22:46:30.105079 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'introspect': 'True', 'target_path': 'None', 'write_json': 'True', 'debug': 'False', 'profiles_dir': '/Users/kimcuong/.dbt', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'indirect_selection': 'eager', 'log_format': 'default', 'static_parser': 'True', 'cache_selected_only': 'False', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'printer_width': '80', 'no_print': 'None', 'warn_error': 'None', 'empty': 'None', 'invocation_command': 'dbt debug', 'log_cache_events': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': 'logs', 'fail_fast': 'False'}
+[0m22:46:30.112241 [info ] [MainThread]: dbt version: 1.11.10
+[0m22:46:30.112433 [info ] [MainThread]: python version: 3.11.13
+[0m22:46:30.112562 [info ] [MainThread]: python path: /Users/kimcuong/source/DEC/dbt-gcp/.venv/bin/python3
+[0m22:46:30.112673 [info ] [MainThread]: os info: macOS-15.2-arm64-arm-64bit
+[0m22:46:30.439634 [info ] [MainThread]: Using profiles dir at /Users/kimcuong/.dbt
+[0m22:46:30.439869 [info ] [MainThread]: Using profiles.yml file at /Users/kimcuong/.dbt/profiles.yml
+[0m22:46:30.439990 [info ] [MainThread]: Using dbt_project.yml file at /Users/kimcuong/source/DEC/dbt-gcp/dbt_project.yml
+[0m22:46:30.440099 [info ] [MainThread]: adapter type: bigquery
+[0m22:46:30.440199 [info ] [MainThread]: adapter version: 1.11.1
+[0m22:46:30.440310 [info ] [MainThread]: Configuration:
+[0m22:46:30.440413 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m22:46:30.440510 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m22:46:30.440609 [info ] [MainThread]: Required dependencies:
+[0m22:46:30.440735 [debug] [MainThread]: Executing "git --help"
+[0m22:46:30.450202 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m22:46:30.450530 [debug] [MainThread]: STDERR: "b''"
+[0m22:46:30.450649 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m22:46:30.450776 [info ] [MainThread]: Connection:
+[0m22:46:30.450993 [info ] [MainThread]:   method: oauth
+[0m22:46:30.451201 [info ] [MainThread]:   database: codealong-bq-491909
+[0m22:46:30.451377 [info ] [MainThread]:   execution_project: codealong-bq-491909
+[0m22:46:30.451489 [info ] [MainThread]:   schema: MongoDB_001
+[0m22:46:30.451589 [info ] [MainThread]:   location: US
+[0m22:46:30.451692 [info ] [MainThread]:   priority: interactive
+[0m22:46:30.451796 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m22:46:30.451895 [info ] [MainThread]:   impersonate_service_account: None
+[0m22:46:30.451993 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m22:46:30.452088 [info ] [MainThread]:   job_retries: 1
+[0m22:46:30.452186 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m22:46:30.452280 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m22:46:30.452374 [info ] [MainThread]:   timeout_seconds: 300
+[0m22:46:30.452474 [info ] [MainThread]:   client_id: None
+[0m22:46:30.452604 [info ] [MainThread]:   token_uri: None
+[0m22:46:30.452711 [info ] [MainThread]:   compute_region: None
+[0m22:46:30.452804 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m22:46:30.452898 [info ] [MainThread]:   gcs_bucket: None
+[0m22:46:30.452989 [info ] [MainThread]:   dataproc_batch: None
+[0m22:46:30.453229 [info ] [MainThread]: Registered adapter: bigquery=1.11.1
+[0m22:46:30.550117 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m22:46:30.550392 [debug] [MainThread]: On debug: select 1 as id
+[0m22:46:30.550559 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:46:32.478227 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=codealong-bq-491909&j=bq:US:86e4424e-4490-4b3b-ace4-4dd2d384e92f&page=queryresults
+[0m22:46:32.902292 [debug] [MainThread]: SQL status: OK in 0.423 seconds
+[0m22:46:33.335083 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m22:46:33.335906 [info ] [MainThread]: [31m1 check failed:[0m
+[0m22:46:33.336224 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </Users/kimcuong/source/DEC/dbt-gcp/dbt_project.yml> not found
+
+[0m22:46:33.339798 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 3.2613494, "process_in_blocks": "0", "process_kernel_time": 0.23048, "process_mem_max_rss": "223952896", "process_out_blocks": "0", "process_user_time": 0.831649}
+[0m22:46:33.340336 [debug] [MainThread]: Command `dbt debug` failed at 22:46:33.340246 after 3.26 seconds
+[0m22:46:33.340708 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m22:46:33.341042 [debug] [MainThread]: Flushing usage events
+[0m19:13:39.612853 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 19:13:39.628658 | dfa39811-0082-417b-8422-dc5e7f070b2a ==============================
+[0m19:13:39.628658 [info ] [MainThread]: Running with dbt=1.11.10
+[0m19:13:39.629147 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'profiles_dir': '/Users/kimcuong/.dbt', 'indirect_selection': 'eager', 'invocation_command': 'dbt run', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'no_print': 'None', 'static_parser': 'True', 'write_json': 'True', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'target_path': 'None', 'use_colors': 'True', 'printer_width': '80', 'warn_error': 'None', 'partial_parse': 'True', 'empty': 'False', 'log_path': 'logs', 'introspect': 'True', 'quiet': 'False', 'debug': 'False', 'use_experimental_parser': 'False'}
+[0m19:13:39.629446 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/kimcuong/source/DEC/dbt-gcp/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m19:13:39.630597 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.039546456, "process_in_blocks": "0", "process_kernel_time": 0.125058, "process_mem_max_rss": "111280128", "process_out_blocks": "0", "process_user_time": 0.529718}
+[0m19:13:39.630911 [debug] [MainThread]: Command `dbt run` failed at 19:13:39.630844 after 0.04 seconds
+[0m19:13:39.631273 [debug] [MainThread]: Flushing usage events
+[0m21:17:12.948942 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 21:17:12.957597 | ba37fc34-45f8-4c22-ab25-5ef757d0bd59 ==============================
+[0m21:17:12.957597 [info ] [MainThread]: Running with dbt=1.11.10
+[0m21:17:12.958000 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'static_parser': 'True', 'printer_width': '80', 'introspect': 'True', 'invocation_command': 'dbt run --select stg_summary', 'warn_error': 'None', 'profiles_dir': '/Users/kimcuong/.dbt', 'use_experimental_parser': 'False', 'log_path': 'logs', 'log_format': 'default', 'debug': 'False', 'partial_parse': 'True', 'write_json': 'True', 'target_path': 'None', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'use_colors': 'True', 'no_print': 'None', 'indirect_selection': 'eager'}
+[0m21:17:12.958241 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/kimcuong/source/DEC/dbt-gcp/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m21:17:12.958824 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.027474, "process_in_blocks": "0", "process_kernel_time": 0.067681, "process_mem_max_rss": "110903296", "process_out_blocks": "0", "process_user_time": 0.449175}
+[0m21:17:12.959026 [debug] [MainThread]: Command `dbt run` failed at 21:17:12.958988 after 0.03 seconds
+[0m21:17:12.959160 [debug] [MainThread]: Flushing usage events
+[0m21:17:32.756601 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 21:17:32.764374 | b42cc713-3b8d-46c6-9734-737078e5b414 ==============================
+[0m21:17:32.764374 [info ] [MainThread]: Running with dbt=1.11.10
+[0m21:17:32.764772 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'invocation_command': 'dbt run --select stg_summary', 'log_path': 'logs', 'partial_parse': 'True', 'cache_selected_only': 'False', 'no_print': 'None', 'target_path': 'None', 'indirect_selection': 'eager', 'empty': 'False', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/Users/kimcuong/.dbt', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'debug': 'False', 'log_format': 'default', 'static_parser': 'True', 'printer_width': '80', 'write_json': 'True', 'version_check': 'True', 'use_experimental_parser': 'False', 'warn_error': 'None', 'introspect': 'True'}
+[0m21:17:32.765001 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/kimcuong/source/DEC/dbt-gcp/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m21:17:32.765609 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.026534917, "process_in_blocks": "0", "process_kernel_time": 0.059566, "process_mem_max_rss": "110641152", "process_out_blocks": "0", "process_user_time": 0.45162}
+[0m21:17:32.765802 [debug] [MainThread]: Command `dbt run` failed at 21:17:32.765764 after 0.03 seconds
+[0m21:17:32.765932 [debug] [MainThread]: Flushing usage events
+[0m22:45:58.465487 [debug] [MainThread]: Got an exception trying to initialize tracking
+
+
+============================== 22:45:58.478996 | 2f67f8d0-e69f-4c78-a930-7f2447388cc6 ==============================
+[0m22:45:58.478996 [info ] [MainThread]: Running with dbt=1.11.10
+[0m22:45:58.479458 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/Users/kimcuong/.dbt', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'False', 'indirect_selection': 'eager', 'warn_error': 'None', 'debug': 'False', 'no_print': 'None', 'introspect': 'True', 'partial_parse': 'True', 'log_path': 'logs', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'quiet': 'False', 'invocation_command': 'dbt run --select stg_crawl_product', 'use_experimental_parser': 'False', 'printer_width': '80', 'version_check': 'True', 'cache_selected_only': 'False', 'target_path': 'None', 'log_cache_events': 'False', 'log_format': 'default', 'static_parser': 'True', 'use_colors': 'True'}
+[0m22:45:58.479742 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /Users/kimcuong/source/DEC/dbt-gcp/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m22:45:58.480626 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.033126082, "process_in_blocks": "0", "process_kernel_time": 0.103938, "process_mem_max_rss": "111542272", "process_out_blocks": "0", "process_user_time": 0.512604}
+[0m22:45:58.480860 [debug] [MainThread]: Command `dbt run` failed at 22:45:58.480816 after 0.03 seconds
+[0m22:45:58.481004 [debug] [MainThread]: Flushing usage events
