@@ -1,27 +1,16 @@
-{{ config(materialized='table') }}
+WITH dim_product__source AS (
 
-select
+    SELECT *
+    FROM {{ ref('stg_crawl_products') }}
 
-    {{ dbt_utils.generate_surrogate_key([
-        'product_id'
-    ]) }} as product_key,
+)
 
+SELECT
+    product_key,
     product_id,
-
     sku,
-
     product_name,
-
     product_type,
-
-    collection_name,
-
-    category_id,
-
-    gender,
-
-    current_timestamp() as created_at,
-
-    current_timestamp() as updated_at
-
-from {{ ref('int_products_attributes') }}
+    crawl_collection,
+    gender
+FROM dim_product__source

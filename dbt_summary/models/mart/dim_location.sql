@@ -1,20 +1,43 @@
-{{ config(materialized='table') }}
+WITH
+    dim_location__source AS (
+        SELECT
+            *
+        FROM {{ ref('stg_ip_locations') }}
+    ),
 
-select distinct
+    dim_location__get_distinct as (
+        SELECT DISTINCT
+            location_key,
+            country_code,
+            country_name,
+            region_name,
+            city_name
+        FROM dim_location__source
+    ),
 
-    {{ dbt_utils.generate_surrogate_key([
-        'country_code',
-        'country_name',
-        'region_name',
-        'city_name'
-    ]) }} as location_key,
+    dim_location__add_default_values AS (
+        SELECT
+            location_key,
+            country_code,
+            country_name,
+            region_name,
+            city_name
+        FROM dim_location__get_distinct
+        WHERE NOT (
+            country_code = '-'
+            AND country_name = '-'
+            AND region_name = '-'
+            AND city_name = '-'
+        )    
+        UNION ALL
 
-    country_code,
-    country_name,
-    region_name,
-    city_name,
+        SELECT
+            CAST(-1 AS INT64) AS location_key,
+            'UNKNOWN' AS country_code,
+            'UNKNOWN' AS country_name,
+            'UNKNOWN' AS region_name,
+            'UNKNOWN' AS city_name
+    )
 
-    current_datetime() as created_at,
-    current_datetime() as updated_at
-
-from {{ ref('stg_ip_locations') }}
+    SELECT *
+    FROM dim_location__add_default_values

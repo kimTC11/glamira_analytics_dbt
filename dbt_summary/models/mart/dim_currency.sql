@@ -19,6 +19,7 @@ currencies as (
     from source
 
     where iso_code is not null
+        and confidence > 0.0
 
 )
 
