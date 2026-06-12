@@ -1,21 +1,23 @@
-{# Steps:
--- 1. Get data from source
--- 2. Rename columns
--- 3. Cast data types
-#}
-
-WITH summary__source AS (
+WITH stg_sales_order_detail__source AS (
 
     SELECT *
     FROM {{ source('glamira_src', 'summary_clean') }}
 
 ),
 
-summary__rename AS (
+stg_sales_order_detail__success_checkout AS (
+
+    SELECT *
+    FROM stg_sales_order_detail__source
+    WHERE collection = 'checkout_success'
+
+),
+
+stg_sales_order_detail__rename AS (
 
     SELECT
-        _id AS source_id,
         order_id,
+        product_id,
         is_paypal,
         email_address,
         user_id_db,
@@ -25,15 +27,15 @@ summary__rename AS (
         collect_id AS collection_id,
         collection,
         time_stamp
-    FROM summary__source
+    FROM stg_sales_order_detail__success_checkout
 
 ),
 
-summary__cast_type AS (
+stg_sales_order_detail__cast_type AS (
 
     SELECT
-        CAST(source_id AS STRING) AS source_id,
         CAST(order_id AS STRING) AS order_id,
+        CAST(product_id AS STRING) AS product_id,
         CAST(is_paypal AS BOOL) AS is_paypal,
         CAST(email_address AS STRING) AS email_address,
         CAST(user_id_db AS STRING) AS user_id_db,
@@ -43,9 +45,9 @@ summary__cast_type AS (
         CAST(collection_id AS STRING) AS collection_id,
         CAST(collection AS STRING) AS collection,
         TIMESTAMP_MILLIS(time_stamp) AS order_timestamp
-    FROM summary__rename
+    FROM stg_sales_order_detail__rename
 
 )
 
 SELECT *
-FROM summary__cast_type
+FROM stg_sales_order_detail__cast_type
